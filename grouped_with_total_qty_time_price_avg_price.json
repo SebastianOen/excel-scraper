@@ -1,0 +1,317 @@
+[
+  {
+    "Product Code": "PH-20230101-06",
+    "BArea": "NO1",
+    "TotalQTY": 1.4,
+    "TotalTimePrice": 21.286,
+    "AveragePricePerUnit": 15.204285714285716
+  },
+  {
+    "Product Code": "PH-20230101-11",
+    "BArea": "NO1",
+    "TotalQTY": 5.7,
+    "TotalTimePrice": 424.65000000000003,
+    "AveragePricePerUnit": 74.5
+  },
+  {
+    "Product Code": "PH-20230101-12",
+    "BArea": "NO1",
+    "TotalQTY": 5.7,
+    "TotalTimePrice": 544.35,
+    "AveragePricePerUnit": 95.5
+  },
+  {
+    "Product Code": "PH-20230101-13",
+    "BArea": "NO1",
+    "TotalQTY": 5.7,
+    "TotalTimePrice": 547.2,
+    "AveragePricePerUnit": 96
+  },
+  {
+    "Product Code": "PH-20230101-14",
+    "BArea": "NO1",
+    "TotalQTY": 5.8,
+    "TotalTimePrice": 612.87,
+    "AveragePricePerUnit": 105.66724137931035
+  },
+  {
+    "Product Code": "PH-20230101-15",
+    "BArea": "NO1",
+    "TotalQTY": 9.3,
+    "TotalTimePrice": 741,
+    "AveragePricePerUnit": 79.6774193548387
+  },
+  {
+    "Product Code": "PH-20230101-16",
+    "BArea": "NO1",
+    "TotalQTY": 5.8,
+    "TotalTimePrice": 611.0400000000001,
+    "AveragePricePerUnit": 105.35172413793106
+  },
+  {
+    "Product Code": "PH-20230101-17",
+    "BArea": "NO1",
+    "TotalQTY": 5.6,
+    "TotalTimePrice": 660.688,
+    "AveragePricePerUnit": 117.98
+  },
+  {
+    "Product Code": "PH-20230101-18",
+    "BArea": "NO1",
+    "TotalQTY": 5.8,
+    "TotalTimePrice": 683.522,
+    "AveragePricePerUnit": 117.84862068965518
+  },
+  {
+    "Product Code": "PH-20230101-20",
+    "BArea": "NO1",
+    "TotalQTY": 5.7,
+    "TotalTimePrice": 666.957,
+    "AveragePricePerUnit": 117.00999999999999
+  },
+  {
+    "Product Code": "PH-20230101-21",
+    "BArea": "NO1",
+    "TotalQTY": 5.7,
+    "TotalTimePrice": 663.48,
+    "AveragePricePerUnit": 116.4
+  },
+  {
+    "Product Code": "PH-20230101-22",
+    "BArea": "NO1",
+    "TotalQTY": 5.7,
+    "TotalTimePrice": 658.92,
+    "AveragePricePerUnit": 115.6
+  },
+  {
+    "Product Code": "PH-20230101-23",
+    "BArea": "NO1",
+    "TotalQTY": 5.7,
+    "TotalTimePrice": 639.768,
+    "AveragePricePerUnit": 112.24
+  },
+  {
+    "Product Code": "PH-20230101-24",
+    "BArea": "NO1",
+    "TotalQTY": 11.7,
+    "TotalTimePrice": 1154.8649999999998,
+    "AveragePricePerUnit": 98.70641025641024
+  },
+  {
+    "Product Code": "PH-20230101-07",
+    "BArea": "NO2",
+    "TotalQTY": 18.1,
+    "TotalTimePrice": 1662.125,
+    "AveragePricePerUnit": 91.83011049723756
+  },
+  {
+    "Product Code": "PH-20230101-08",
+    "BArea": "NO2",
+    "TotalQTY": 23.9,
+    "TotalTimePrice": 2395.859,
+    "AveragePricePerUnit": 100.24514644351464
+  },
+  {
+    "Product Code": "PH-20230101-09",
+    "BArea": "NO2",
+    "TotalQTY": 20.3,
+    "TotalTimePrice": 1940.7569999999996,
+    "AveragePricePerUnit": 95.60379310344825
+  },
+  {
+    "Product Code": "PH-20230101-10",
+    "BArea": "NO2",
+    "TotalQTY": 51.4,
+    "TotalTimePrice": 5743.338000000001,
+    "AveragePricePerUnit": 111.73809338521403
+  },
+  {
+    "Product Code": "PH-20230101-11",
+    "BArea": "NO2",
+    "TotalQTY": 16.8,
+    "TotalTimePrice": 1626.13,
+    "AveragePricePerUnit": 96.79345238095239
+  },
+  {
+    "Product Code": "PH-20230101-12",
+    "BArea": "NO2",
+    "TotalQTY": 22.8,
+    "TotalTimePrice": 2516.19,
+    "AveragePricePerUnit": 110.35921052631579
+  },
+  {
+    "Product Code": "PH-20230101-13",
+    "BArea": "NO2",
+    "TotalQTY": 16.8,
+    "TotalTimePrice": 1756.1599999999999,
+    "AveragePricePerUnit": 104.53333333333332
+  },
+  {
+    "Product Code": "PH-20230101-14",
+    "BArea": "NO2",
+    "TotalQTY": 10.7,
+    "TotalTimePrice": 761.0400000000001,
+    "AveragePricePerUnit": 71.12523364485982
+  },
+  {
+    "Product Code": "PH-20230101-15",
+    "BArea": "NO2",
+    "TotalQTY": 17.900000000000002,
+    "TotalTimePrice": 1103.28,
+    "AveragePricePerUnit": 61.63575418994412
+  },
+  {
+    "Product Code": "PH-20230101-16",
+    "BArea": "NO2",
+    "TotalQTY": 36.9,
+    "TotalTimePrice": 2326.326,
+    "AveragePricePerUnit": 63.04406504065041
+  },
+  {
+    "Product Code": "PH-20230101-17",
+    "BArea": "NO2",
+    "TotalQTY": 17.1,
+    "TotalTimePrice": 1632.6870000000001,
+    "AveragePricePerUnit": 95.47877192982456
+  },
+  {
+    "Product Code": "PH-20230101-20",
+    "BArea": "NO2",
+    "TotalQTY": 43.9,
+    "TotalTimePrice": 7603.48,
+    "AveragePricePerUnit": 173.2
+  },
+  {
+    "Product Code": "PH-20230101-21",
+    "BArea": "NO2",
+    "TotalQTY": 46.49999999999999,
+    "TotalTimePrice": 5920.826,
+    "AveragePricePerUnit": 127.32959139784948
+  },
+  {
+    "Product Code": "PH-20230101-22",
+    "BArea": "NO2",
+    "TotalQTY": 37.3,
+    "TotalTimePrice": 4463.17,
+    "AveragePricePerUnit": 119.65603217158178
+  },
+  {
+    "Product Code": "PH-20230101-23",
+    "BArea": "NO2",
+    "TotalQTY": 40.8,
+    "TotalTimePrice": 4424.727,
+    "AveragePricePerUnit": 108.44919117647059
+  },
+  {
+    "Product Code": "PH-20230101-24",
+    "BArea": "NO2",
+    "TotalQTY": 89.5,
+    "TotalTimePrice": 10309.699,
+    "AveragePricePerUnit": 115.19216759776536
+  },
+  {
+    "Product Code": "PH-20230101-01",
+    "BArea": "NO3",
+    "TotalQTY": 22,
+    "TotalTimePrice": 537.4,
+    "AveragePricePerUnit": 24.427272727272726
+  },
+  {
+    "Product Code": "PH-20230101-01-PH-20230101-05",
+    "BArea": "NO3",
+    "TotalQTY": 10,
+    "TotalTimePrice": 0,
+    "AveragePricePerUnit": 0
+  },
+  {
+    "Product Code": "PH-20230101-03",
+    "BArea": "NO3",
+    "TotalQTY": 1.6,
+    "TotalTimePrice": 37.44,
+    "AveragePricePerUnit": 23.4
+  },
+  {
+    "Product Code": "PH-20230101-04",
+    "BArea": "NO3",
+    "TotalQTY": 1.6,
+    "TotalTimePrice": 37.92,
+    "AveragePricePerUnit": 23.7
+  },
+  {
+    "Product Code": "PH-20230101-05",
+    "BArea": "NO3",
+    "TotalQTY": 1.4,
+    "TotalTimePrice": 33.74,
+    "AveragePricePerUnit": 24.1
+  },
+  {
+    "Product Code": "PH-20230101-21",
+    "BArea": "NO3",
+    "TotalQTY": 5,
+    "TotalTimePrice": 520,
+    "AveragePricePerUnit": 104
+  },
+  {
+    "Product Code": "PH-20230101-23",
+    "BArea": "NO3",
+    "TotalQTY": 10.3,
+    "TotalTimePrice": 773.0999999999999,
+    "AveragePricePerUnit": 75.05825242718446
+  },
+  {
+    "Product Code": "PH-20230101-01",
+    "BArea": "NO4",
+    "TotalQTY": 2,
+    "TotalTimePrice": 42.7,
+    "AveragePricePerUnit": 21.35
+  },
+  {
+    "Product Code": "PH-20230101-16",
+    "BArea": "NO4",
+    "TotalQTY": 1.7,
+    "TotalTimePrice": 39.898999999999994,
+    "AveragePricePerUnit": 23.469999999999995
+  },
+  {
+    "Product Code": "PH-20230101-17",
+    "BArea": "NO4",
+    "TotalQTY": 32.9,
+    "TotalTimePrice": 1020.4609999999999,
+    "AveragePricePerUnit": 31.01705167173252
+  },
+  {
+    "Product Code": "PH-20230101-18",
+    "BArea": "NO4",
+    "TotalQTY": 33.6,
+    "TotalTimePrice": 1355.72,
+    "AveragePricePerUnit": 40.34880952380952
+  },
+  {
+    "Product Code": "PH-20230101-19",
+    "BArea": "NO4",
+    "TotalQTY": 36.599999999999994,
+    "TotalTimePrice": 1482.048,
+    "AveragePricePerUnit": 40.493114754098364
+  },
+  {
+    "Product Code": "PH-20230101-20",
+    "BArea": "NO4",
+    "TotalQTY": 30.000000000000004,
+    "TotalTimePrice": 1133.8860000000002,
+    "AveragePricePerUnit": 37.7962
+  },
+  {
+    "Product Code": "PH-20230101-21",
+    "BArea": "NO4",
+    "TotalQTY": 14.4,
+    "TotalTimePrice": 489.3300000000001,
+    "AveragePricePerUnit": 33.98125
+  },
+  {
+    "Product Code": "PH-20230101-22",
+    "BArea": "NO4",
+    "TotalQTY": 3,
+    "TotalTimePrice": 57,
+    "AveragePricePerUnit": 19
+  }
+]
