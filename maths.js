@@ -54,18 +54,22 @@ groupedArray.forEach((entry) => {
   productCodeRange.forEach((code) => {
     const productCode = entry["Product Code"].slice(0, -2) + code; // Append the code to the existing product code
     const key = productCode + "-" + BArea;
-    const existingEntry = extractedData.find(
-      (item) => item["Product Code"] === productCode && item["BArea"] === BArea
-    );
-    if (!existingEntry) {
-      // Add a new object with the product code, BArea, and value of "undefined"
-      extractedData.push({
-        "Product Code": productCode,
-        BArea: BArea,
-        AveragePricePerUnit: groupedData[key]
-          ? groupedData[key]["AveragePricePerUnit"]
-          : undefined,
-      });
+    // Check if it's not a canceled order (not having a "-PH-" suffix)
+    if (!productCode.includes("-PH-")) {
+      const existingEntry = extractedData.find(
+        (item) =>
+          item["Product Code"] === productCode && item["BArea"] === BArea
+      );
+      if (!existingEntry) {
+        // Add a new object with the product code, BArea, and value of "undefined"
+        extractedData.push({
+          "Product Code": productCode,
+          BArea: BArea,
+          AveragePricePerUnit: groupedData[key]
+            ? groupedData[key]["AveragePricePerUnit"]
+            : undefined,
+        });
+      }
     }
   });
 });
