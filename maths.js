@@ -46,29 +46,29 @@ const productCodeRange = Array.from({ length: 24 }, (_, i) => i + 1).map(
 );
 
 // Iterate over each BArea
+const extractedData = [];
 groupedArray.forEach((entry) => {
   const BArea = entry.BArea;
   productCodeRange.forEach((code) => {
     const productCode = entry["Product Code"].slice(0, -2) + code; // Append the code to the existing product code
-    if (!groupedData[productCode + "-" + BArea]) {
-      // Add a new object with the product code and value of "undefined"
-      groupedArray.push({
+    const key = productCode + "-" + BArea;
+    if (!groupedData[key]) {
+      // Add a new object with the product code, BArea, and value of "undefined"
+      extractedData.push({
         "Product Code": productCode,
         BArea: BArea,
-        TotalQTY: undefined,
-        TotalTimePrice: undefined,
         AveragePricePerUnit: undefined,
+      });
+    } else {
+      // Add the existing entry if it exists
+      extractedData.push({
+        "Product Code": productCode,
+        BArea: BArea,
+        AveragePricePerUnit: groupedData[key]["AveragePricePerUnit"],
       });
     }
   });
 });
-
-// Extract Product Code, BArea, and AveragePricePerUnit fields
-const extractedData = groupedArray.map((entry) => ({
-  "Product Code": entry["Product Code"],
-  BArea: entry["BArea"],
-  AveragePricePerUnit: entry["AveragePricePerUnit"],
-}));
 
 // Convert extracted data to CSV format
 const csv = extractedData
