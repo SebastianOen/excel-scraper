@@ -1,29 +1,36 @@
 const fs = require("fs");
 
-const jsonData = require("./output.json");
-
-function sortJsonData(a, b) {
+function sortAndProcessData(jsonData) {
   const priorityOrder = { NO1: 1, NO2: 2, NO3: 3, NO4: 4 };
-  const priorityA = priorityOrder[a.BArea] || Number.MAX_SAFE_INTEGER;
-  const priorityB = priorityOrder[b.BArea] || Number.MAX_SAFE_INTEGER;
 
-  if (priorityA !== priorityB) {
-    return priorityA - priorityB;
+  function sortJsonData(a, b) {
+    const priorityA = priorityOrder[a.BArea] || Number.MAX_SAFE_INTEGER;
+    const priorityB = priorityOrder[b.BArea] || Number.MAX_SAFE_INTEGER;
+
+    if (priorityA !== priorityB) {
+      return priorityA - priorityB;
+    }
+
+    if (a["Product Code"] < b["Product Code"]) return -1;
+    if (a["Product Code"] > b["Product Code"]) return 1;
+
+    return 0;
   }
 
-  if (a["Product Code"] < b["Product Code"]) return -1;
-  if (a["Product Code"] > b["Product Code"]) return 1;
+  const sortedData = jsonData
+    .filter((entry) => ["NO1", "NO2", "NO3", "NO4"].includes(entry.BArea))
+    .map((entry) => ({
+      ...entry,
+      TotalPrice: parseFloat(entry.QTY) * parseFloat(entry.Price),
+    }))
+    .sort(sortJsonData);
 
-  return 0;
+  return sortedData;
 }
 
-const sortedData = jsonData
-  .filter((entry) => ["NO1", "NO2", "NO3", "NO4"].includes(entry.BArea))
-  .map((entry) => ({
-    ...entry,
-    TotalPrice: parseFloat(entry.QTY) * parseFloat(entry.Price),
-  }))
-  .sort(sortJsonData);
+const jsonData = require("./output.json");
+
+const sortedData = sortAndProcessData(jsonData);
 
 fs.writeFile(
   "sorted_with_total_price.json",

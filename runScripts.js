@@ -1,39 +1,34 @@
 const { spawn } = require("child_process");
 
-// List of JavaScript files to run in succession
-const scriptsToRun = [
-  "scraper.js",
-  "dataSorter.js",
-  "maths.js",
-  // Add more script paths as needed
-];
+const scriptsToRun = ["scraper.js", "dataSorter.js", "maths.js"];
 
-// Function to run scripts in succession
-function runScripts() {
-  // Iterate over the list of script paths
-  scriptsToRun.forEach((script, index) => {
-    console.log(`Running ${script}...`);
-    // Spawn a child process to run the script after a delay
-    setTimeout(() => {
-      const childProcess = spawn("node", [script]);
+function runScripts(index) {
+  if (index >= scriptsToRun.length) {
+    console.log("All scripts have been executed.");
+    return;
+  }
 
-      // Listen for output from the child process
-      childProcess.stdout.on("data", (data) => {
-        console.log(`stdout from ${script}: ${data}`);
-      });
+  const script = scriptsToRun[index];
+  console.log(`Running ${script}...`);
 
-      // Listen for errors from the child process
-      childProcess.stderr.on("data", (data) => {
-        console.error(`stderr from ${script}: ${data}`);
-      });
+  const childProcess = spawn("node", [script]);
 
-      // Listen for when the child process exits
-      childProcess.on("exit", (code, signal) => {
-        console.log(`Child process ${script} exited with code ${code}`);
-      });
-    }, index * 3000); // Delay each script execution by 3 seconds
+  childProcess.stdout.on("data", (data) => {
+    console.log(`stdout from ${script}: ${data}`);
+  });
+
+  childProcess.stderr.on("data", (data) => {
+    console.error(`stderr from ${script}: ${data}`);
+  });
+
+  childProcess.on("exit", (code, signal) => {
+    console.log(`Child process ${script} exited with code ${code}`);
+    if (code === 0) {
+      runScripts(index + 1); // Start the next script
+    } else {
+      console.error(`Error executing ${script}. Exiting...`);
+    }
   });
 }
 
-// Run the scripts
-runScripts();
+runScripts(0); // Start executing scripts from the beginning
