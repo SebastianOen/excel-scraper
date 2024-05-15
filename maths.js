@@ -54,24 +54,17 @@ groupedArray.forEach((entry) => {
   productCodeRange.forEach((code) => {
     const productCode = entry["Product Code"].slice(0, -2) + code; // Append the code to the existing product code
     const key = productCode + "-" + BArea;
-    if (!groupedData[key]) {
+    const existingEntry = extractedData.find(
+      (item) => item["Product Code"] === productCode && item["BArea"] === BArea
+    );
+    if (!existingEntry) {
       // Add a new object with the product code, BArea, and value of "undefined"
       extractedData.push({
         "Product Code": productCode,
         BArea: BArea,
-        AveragePricePerUnit: undefined,
-      });
-    } else if (
-      !extractedData.some(
-        (item) =>
-          item["Product Code"] === productCode && item["BArea"] === BArea
-      )
-    ) {
-      // Add the existing entry if it exists but not already added
-      extractedData.push({
-        "Product Code": productCode,
-        BArea: BArea,
-        AveragePricePerUnit: groupedData[key]["AveragePricePerUnit"],
+        AveragePricePerUnit: groupedData[key]
+          ? groupedData[key]["AveragePricePerUnit"]
+          : undefined,
       });
     }
   });
