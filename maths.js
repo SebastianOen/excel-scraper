@@ -40,15 +40,42 @@ fs.writeFile(
   }
 );
 
-// Extract Product Code and AveragePricePerUnit fields
+// Define the range of values for the product codes (01 to 24)
+const productCodeRange = Array.from({ length: 24 }, (_, i) => i + 1).map(
+  (num) => num.toString().padStart(2, "0")
+);
+
+// Iterate over each BArea
+groupedArray.forEach((entry) => {
+  const BArea = entry.BArea;
+  productCodeRange.forEach((code) => {
+    const productCode = entry["Product Code"].slice(0, -2) + code; // Append the code to the existing product code
+    if (!groupedData[productCode + "-" + BArea]) {
+      // Add a new object with the product code and value of "undefined"
+      groupedArray.push({
+        "Product Code": productCode,
+        BArea: BArea,
+        TotalQTY: undefined,
+        TotalTimePrice: undefined,
+        AveragePricePerUnit: undefined,
+      });
+    }
+  });
+});
+
+// Extract Product Code, BArea, and AveragePricePerUnit fields
 const extractedData = groupedArray.map((entry) => ({
   "Product Code": entry["Product Code"],
+  BArea: entry["BArea"],
   AveragePricePerUnit: entry["AveragePricePerUnit"],
 }));
 
 // Convert extracted data to CSV format
 const csv = extractedData
-  .map((entry) => `${entry["Product Code"]},${entry["AveragePricePerUnit"]}`)
+  .map(
+    (entry) =>
+      `${entry["Product Code"]},${entry["BArea"]},${entry["AveragePricePerUnit"]}`
+  )
   .join("\n");
 
 // Write the CSV data to a new file
