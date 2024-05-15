@@ -1,9 +1,7 @@
 const fs = require("fs");
 
-// Read the JSON file
 const jsonData = require("./sorted_with_total_price.json");
 
-// Group entries by Product Code and BArea
 const groupedData = jsonData.reduce((acc, entry) => {
   const key = entry["Product Code"] + "-" + entry.BArea;
   if (!acc[key]) {
@@ -22,10 +20,8 @@ const groupedData = jsonData.reduce((acc, entry) => {
   return acc;
 }, {});
 
-// Convert grouped data to array
 const groupedArray = Object.values(groupedData);
 
-// Write the grouped data to a new JSON file
 fs.writeFile(
   "grouped_with_total_qty_time_price_avg_price.json",
   JSON.stringify(groupedArray, null, 2),
@@ -36,57 +32,99 @@ fs.writeFile(
       console.log(
         "JSON data grouped by Product Code and BArea with total QTY, total time price, and average price per unit saved to grouped_with_total_qty_time_price_avg_price.json"
       );
-    }
-  }
-);
 
-// Define the range of values for the product codes (01 to 24)
-const productCodeRange = Array.from({ length: 24 }, (_, i) => i + 1).map(
-  (num) => num.toString().padStart(2, "0")
-);
-
-// Initialize extracted data array
-const extractedData = [];
-
-// Iterate over each BArea
-groupedArray.forEach((entry) => {
-  const BArea = entry.BArea;
-  productCodeRange.forEach((code) => {
-    const productCode = entry["Product Code"].slice(0, -2) + code; // Append the code to the existing product code
-    const key = productCode + "-" + BArea;
-    // Check if it's not a canceled order (not having a "-PH-" suffix)
-    if (!productCode.includes("-PH-")) {
-      const existingEntry = extractedData.find(
-        (item) =>
-          item["Product Code"] === productCode && item["BArea"] === BArea
+      const productCodeRange = Array.from({ length: 24 }, (_, i) => i + 1).map(
+        (num) => num.toString().padStart(2, "0")
       );
-      if (!existingEntry) {
-        // Add a new object with the product code, BArea, and value of "undefined"
-        extractedData.push({
-          "Product Code": productCode,
-          BArea: BArea,
-          AveragePricePerUnit: groupedData[key]
-            ? groupedData[key]["AveragePricePerUnit"]
-            : undefined,
+
+      const extractedData = [];
+
+      groupedArray.forEach((entry) => {
+        const BArea = entry.BArea;
+        productCodeRange.forEach((code) => {
+          const productCode = entry["Product Code"].slice(0, -2) + code; // Append the code to the existing product code
+          const key = productCode + "-" + BArea;
+          if (!productCode.includes("-PH-")) {
+            const existingEntry = extractedData.find(
+              (item) =>
+                item["Product Code"] === productCode && item["BArea"] === BArea
+            );
+            if (!existingEntry) {
+              extractedData.push({
+                "Product Code": productCode,
+                BArea: BArea,
+                AveragePricePerUnit: groupedData[key]
+                  ? groupedData[key]["AveragePricePerUnit"]
+                  : undefined,
+              });
+            }
+          }
         });
-      }
+      });
+
+      const csv = extractedData
+        .map(
+          (entry) =>
+            `${entry["Product Code"]},${entry["BArea"]},${entry["AveragePricePerUnit"]}`
+        )
+        .join("\n");
+
+      fs.writeFile("extracted_data.csv", csv, (err) => {
+        if (err) {
+          console.error("Error occurred while writing CSV to file:", err);
+        } else {
+          console.log("CSV data extracted and saved to extracted_data.csv");
+
+          const destinationFolderPath =
+            "C:\\Users\\Sebas\\OneDrive\\Dokumenter\\Data\\2023\\sortert";
+
+          const destinationFilePath = `${destinationFolderPath}\\extracted_data.csv`;
+
+          fs.copyFile("extracted_data.csv", destinationFilePath, (err) => {
+            if (err) {
+              console.error("Error occurred while copying the file:", err);
+            } else {
+              console.log(`CSV file copied to ${destinationFilePath}`);
+
+              fs.unlink("sorted_with_total_price.json", (err) => {
+                if (err) {
+                  console.error(
+                    "Error occurred while deleting sorted JSON file:",
+                    err
+                  );
+                } else {
+                  console.log("Sorted JSON file deleted");
+                }
+              });
+
+              fs.unlink(
+                "grouped_with_total_qty_time_price_avg_price.json",
+                (err) => {
+                  if (err) {
+                    console.error(
+                      "Error occurred while deleting grouped JSON file:",
+                      err
+                    );
+                  } else {
+                    console.log("Grouped JSON file deleted");
+                  }
+                }
+              );
+
+              fs.unlink("output.json", (err) => {
+                if (err) {
+                  console.error(
+                    "Error occurred while deleting output JSON file:",
+                    err
+                  );
+                } else {
+                  console.log("Output JSON file deleted");
+                }
+              });
+            }
+          });
+        }
+      });
     }
-  });
-});
-
-// Convert extracted data to CSV format
-const csv = extractedData
-  .map(
-    (entry) =>
-      `${entry["Product Code"]},${entry["BArea"]},${entry["AveragePricePerUnit"]}`
-  )
-  .join("\n");
-
-// Write the CSV data to a new file
-fs.writeFile("extracted_data.csv", csv, (err) => {
-  if (err) {
-    console.error("Error occurred while writing CSV to file:", err);
-  } else {
-    console.log("CSV data extracted and saved to extracted_data.csv");
   }
-});
+);
