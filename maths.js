@@ -45,8 +45,10 @@ const productCodeRange = Array.from({ length: 24 }, (_, i) => i + 1).map(
   (num) => num.toString().padStart(2, "0")
 );
 
-// Iterate over each BArea
+// Initialize extracted data array
 const extractedData = [];
+
+// Iterate over each BArea
 groupedArray.forEach((entry) => {
   const BArea = entry.BArea;
   productCodeRange.forEach((code) => {
@@ -59,8 +61,13 @@ groupedArray.forEach((entry) => {
         BArea: BArea,
         AveragePricePerUnit: undefined,
       });
-    } else {
-      // Add the existing entry if it exists
+    } else if (
+      !extractedData.some(
+        (item) =>
+          item["Product Code"] === productCode && item["BArea"] === BArea
+      )
+    ) {
+      // Add the existing entry if it exists but not already added
       extractedData.push({
         "Product Code": productCode,
         BArea: BArea,
