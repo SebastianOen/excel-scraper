@@ -2,7 +2,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 
 const csvFile =
-  "C:UsersSebasOneDriveDokumenterGitHubexcel-scrapercsvFileselbas_ticker_report_20230101 (1).csv";
+  "C:\\Users\\Sebas\\OneDrive\\Dokumenter\\GitHub\\excel-scraper\\csvFiles\\elbas_ticker_report_20230104.csv";
 const jsonData = [];
 
 fs.createReadStream(csvFile)
