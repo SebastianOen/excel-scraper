@@ -2,7 +2,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path");
 
-const folderPath = "C:\\Users\\Sebas\\OneDrive\\Dokumenter\\Data\\2023\\rådata";
+const folderPath = ""; // Insert path to folder with CSV files here
 
 function readCsvFile(filePath) {
   return new Promise((resolve, reject) => {
