@@ -1,9 +1,7 @@
 const fs = require("fs");
 
-// Read JSON data from sorted_with_total_price.json
 const jsonData = require("./sorted_with_total_price.json");
 
-// Group entries by Product Code and BArea
 const groupedData = jsonData.reduce((acc, entry) => {
   const key = entry["Product Code"] + "-" + entry.BArea;
   if (!acc[key]) {
@@ -22,10 +20,9 @@ const groupedData = jsonData.reduce((acc, entry) => {
   return acc;
 }, {});
 
-// Convert grouped data to array
 const groupedArray = Object.values(groupedData);
 
-// Write the grouped data to a new JSON file
+
 fs.writeFile(
   "grouped_with_total_qty_time_price_avg_price.json",
   JSON.stringify(groupedArray, null, 2),
@@ -46,7 +43,7 @@ fs.writeFile(
       groupedArray.forEach((entry) => {
         const BArea = entry.BArea;
         productCodeRange.forEach((code) => {
-          const productCode = entry["Product Code"].slice(0, -2) + code; // Append the code to the existing product code
+          const productCode = entry["Product Code"].slice(0, -2) + code; 
           const key = productCode + "-" + BArea;
           if (!productCode.includes("-PH-")) {
             const existingEntry = extractedData.find(
@@ -66,7 +63,7 @@ fs.writeFile(
         });
       });
 
-      // Convert extracted data to CSV format
+
       const csv = extractedData
         .map(
           (entry) =>
@@ -74,7 +71,7 @@ fs.writeFile(
         )
         .join("\n");
 
-      // Write the CSV data to a new file
+   
       fs.writeFile("extracted_data.csv", csv, (err) => {
         if (err) {
           console.error("Error occurred while writing CSV to file:", err);
@@ -86,14 +83,13 @@ fs.writeFile(
 
           const destinationFilePath = `${destinationFolderPath}\\extracted_data.csv`;
 
-          // Copy the CSV file to the destination folder
+
           fs.copyFile("extracted_data.csv", destinationFilePath, (err) => {
             if (err) {
               console.error("Error occurred while copying the file:", err);
             } else {
               console.log(`CSV file copied to ${destinationFilePath}`);
 
-              // Delete unnecessary JSON files
               fs.unlink("sorted_with_total_price.json", (err) => {
                 if (err) {
                   console.error(
