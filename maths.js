@@ -79,7 +79,7 @@ fs.writeFile(
           console.log("CSV data extracted and saved to extracted_data.csv");
 
           const destinationFolderPath =
-            "C:\\Users\\Sebas\\OneDrive\\Dokumenter\\Data\\2023\\sortert";
+            ""; // insert path to folder where you wish to put copied file of the result here
 
           const destinationFilePath = `${destinationFolderPath}\\extracted_data.csv`;
 
