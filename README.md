@@ -1,4 +1,4 @@
-#Excel-scraper
+# Excel-scraper
 
 
 This is a data scraper meant for gathering data from a very specific datafile from Nordpool. 
